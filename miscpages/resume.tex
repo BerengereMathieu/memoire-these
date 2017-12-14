@@ -1,0 +1,43 @@
+\chapter*{Resumé}
+\addcontentsline{toc}{chapter}{Résumé}
+
+La segmentation est l'un des principaux thèmes du domaine de l'analyse d'images. Segmenter une image consiste à trouver une partition constituée de régions, c'est-à-dire d'ensembles de pixels connexes homogènes selon un critère choisi. L'objectif de la segmentation consiste à obtenir des régions correspondant aux objets ou aux parties des objets qui sont présents dans l'image et dont la nature dépend de l'application visée.
+
+Même s'il peut être très fastidieux, un tel découpage de l'image peut être facilement obtenu par un être humain. Il n'en est pas de même quand il s'agit de créer un programme informatique dont l'objectif est de segmenter les images de manière entièrement automatique.
+
+La segmentation interactive est une approche semi-automatique où l'utilisateur guide la segmentation d'une image en donnant des indications. Les méthodes qui s'inscrivent dans cette approche se divisent en deux catégories en fonction de ce qui est recherché : les contours ou les régions.
+
+Les méthodes qui recherchent des contours permettent d'extraire un unique objet correspondant à une région sans trou. L'utilisateur vient guider la méthode en lui indiquant quelques points sur le contour de l'objet.  L'algorithme se charge de relier chacun des points par une courbe qui respecte les caractéristiques de l'image (les pixels de part et d'autre de la courbe sont aussi dissemblables que possible), les indications données par l'utilisateur (la courbe passe par chacun des points désignés) et quelques propriétés intrinsèques (les courbes régulières sont favorisées). 
+
+Les méthodes qui recherchent les régions groupent les pixels de l'image en des ensembles, de manière à maximiser la similarité en leur sein et la dissemblance entre les différents ensembles. Chaque ensemble correspond à une ou plusieurs composantes connexes et peut contenir des trous. L'utilisateur guide la méthode en traçant des traits de couleur qui désignent quelques pixels appartenant à chacun des ensembles
+Si la majorité des méthodes ont été conçues pour extraire un objet principal du fond, les travaux menés durant la dernière décennie ont permis de proposer des méthodes dites multiclasses, capables de produire une partition de l'image en un nombre arbitraire d'ensembles. 
+
+La contribution principale de ce travail de recherche est la conception d'une nouvelle méthode de segmentation  interactive multiclasse par recherche des régions. Elle repose sur la modélisation du problème comme la minimisation d'une fonction de coût pouvant être représentée par un graphe de facteurs. Elle intègre une méthode de classification par apprentissage supervisé assurant l'adéquation entre la segmentation produite et les indications données par l'utilisateur, l'utilisation d'un nouveau terme de régularisation et la réalisation d'un prétraitement consistant à regrouper les pixels en petites régions cohérentes : les superpixels. 
+
+L'utilisation d'une méthode de sur-segmentation produisant des superpixels est une étape clé de la méthode que nous proposons : elle réduit considérablement la complexité algorithmique et permet de traiter des images contenant plusieurs millions de pixels, tout en garantissant un temps interactif.
+
+La seconde contribution de ce travail est une évaluation des algorithmes permettant de grouper les pixels en superpixels, à partir d'un nouvel ensemble de données de référence que nous mettons  à disposition et dont la particularité est de contenir des images de tailles différentes : de quelques milliers à plusieurs millions de pixels. Cette étude nous a également permis de concevoir et d'évaluer une nouvelle méthode de production de superpixels. 
+
+\textbf{Mots-clés :} segmentation, segmentation interactive, sur-segmentation, superpixels, SVM, graphe de facteurs.
+
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+Image segmentation is one of the main research topics in image analysis. It is the task of researching a partition into regions,\textit{ i.e.}, into sets of connected pixels, meeting a given uniformity criterion. The goal  of image segmentation is to find regions corresponding to the objects or the object parts appearing in the image. The choice of what objects are relevant depends on the application context. 
+
+Manually locating these objects is a tedious but quite simple task. Designing an automatic algorithm able to achieve the same result is, on the contrary, a difficult problem.
+
+Interactive segmentation methods are semi-automatic approaches where a user guide the search of a specific segmentation of an image by giving some indications. There are two kinds of methods : boundary-based and region-based interactive segmentation methods.
+ 
+Boundary-based methods extract a single object corresponding to a unique region without any holes. The user guides the method by selecting some boundary points of the object. The algorithm search for a curve linking all the points given by the user,  following the boundary of the object and having some intrinsic properties (regular curves are encouraged). 
+ 
+Region-based methods group the pixels of an image into sets, by maximizing the similarity of pixels inside each set and the dissimilarity between pixels belonging to different sets. Each set can be composed of one or several connected components and can contain holes. The user guides the method by drawing colored strokes, giving, for each set, some pixels belonging to it.  If the majority of region-based methods extract a single object from the background, some algorithms, proposed during the last decade, are able to solve multi-class interactive segmentation problems, \textit{i.e.}, to extract more than two sets of pixels. 
+
+The main contribution of this work is the design of a new multi-class interactive segmentation method. This algorithm is based on the minimization of a cost function   that can be represented by a factor graph. It integrates a supervised learning classification method checking that the produced segmentation  is consistent with the indications given by the user, a new regularization term, and a preprocessing step grouping pixels into small homogeneous regions called superpixels. 
+
+The use of an over-segmentation method to produce these superpixels is a key step in the proposed interactive segmentation method: it significantly reduces the computational complexity and handles the segmentation of images containing several millions of pixels, by keeping the execution time small enough to ensure comfortable use of the method. 
+
+The second contribution of our work is an evaluation of over-segmentation algorithms. We provide a new dataset, with images of different sizes with a majority of big images. This review has also allowed us to design a new over-segmentation algorithm and to evaluate it. 
+
+\textbf{Keywords:} segmentation, interactive segmentation, over-segmentation, superpixels, SVM, factor graph.
+
