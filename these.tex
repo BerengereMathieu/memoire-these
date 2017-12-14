@@ -1,0 +1,32 @@
+\documentclass[a4paper,11pt]{book}
+\newcommand{\preprint}{NO}
+\input{sources/config.tex}
+\begin{document}
+\frontmatter
+\input{sources/frontmatter.tex}
+\input{miscpages/resume.tex}
+\tableofcontents%%{Table des matières}
+\listoffigures%%{Liste des figures}
+\listoftables%%{Liste des tableaux}
+\mainmatter
+\input{miscpages/intro.tex}
+
+\glsresetall
+\input{sources/chapter1_segmentation-interactive/main.tex} 
+\glsresetall
+\input{sources/chapter2_segmentation-interactive-par-classification-de-superpixels/main.tex} 
+\glsresetall
+\input{sources/chapter3_sur-segmentation/main.tex} 
+\glsresetall
+\input{sources/chapter4_evaluation/main.tex} 
+\glsresetall
+\input{sources/chapter5_asari/main.tex}
+
+\input{miscpages/conclu.tex}
+\appendix
+
+\chapter*{Mise à disposition du code}
+
+\input{biblio/publis.tex}
+\input{biblio/biblio.tex}
+\end{document}
