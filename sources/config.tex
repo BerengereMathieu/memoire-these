@@ -1,0 +1,217 @@
+
+%% packages utilises
+
+%%---------------------
+
+\usepackage{etex}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\addto\captionsfrench{\def\tablename{{\scshape Tableau}}}
+\addto\captionsfrench{ \renewcommand\listfigurename{Liste des figures}}
+\usepackage[french]{translator}
+\usepackage{frbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{these}
+
+\usepackage[a4paper]{geometry}
+
+\usepackage{ulem}
+\normalem
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{textcase}
+\usepackage{graphicx}
+\usepackage{epstopdf}		% .eps to .pdf
+\usepackage{moreverb} %% pour le verbatim en boite
+\usepackage{multirow} %% pour regrouper un texte sur plusieurs lignes dans une table
+\usepackage{url} %% pour citer les url par \url
+\urlstyle{sf}
+\usepackage[all]{xy} %% pour la barre au dessus des symboles
+\usepackage{shorttoc} %% pour plusieurs tables des matières par la commande \shorttableofcontents{Titre}{profondeur}.
+\usepackage{textcomp} %% pour le symbol pour mille par \textperthousand.
+
+\usepackage[right]{eurosym}
+\usepackage{eufrak}
+\usepackage{mathrsfs}
+\usepackage{latexsym}
+% 
+\usepackage{setspace} %allow to change line spacing
+\usepackage{fancyhdr} %header / footer
+
+\usepackage{enumitem} %beautiful enumerations ... no beamer
+\usepackage[singlelinecheck=false ]{caption} %
+\usepackage{subcaption}
+\usepackage{color} %use color
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{epsfig,amsfonts} %math mode
+\usepackage{array,colortbl} %use array / tabular and apply color / style on them
+\usepackage{pstricks} %draw with latex
+\usepackage{tikz}
+\usepackage{listings} %source code with avec \being{lstlistgin}
+
+\usepackage{stmaryrd}
+\usepackage{tocbibind}
+%\usepackage[nottoc]{tocbibind}
+\usepackage{pdfpages}
+\usepackage{chngpage}
+\usepackage{multicol}
+ 
+\usepackage[Algorithme]{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage[autolanguage]{numprint}
+
+\usepackage{hyperref}
+\usepackage[toc]{glossaries}
+
+%\usepackage[toc,nonumberlist,translate=babel]{glossaries}
+
+\usepackage[resetlabels]{multibib}
+\newcites{publis}{Bibliographie personnelle}
+
+\usepackage{bm}
+
+%% choix des profondeurs de section pour la table des matières
+%% 2= subsection, 3=subsubsection
+\setcounter{secnumdepth}{2}  %% Avec un numero.
+\setcounter{tocdepth}{2}     %% Visibles dans la table des matieres
+
+\makeglossary
+
+\def\underscore{\char`\_}
+
+\usepackage[refpage]{nomencl}
+\renewcommand{\nomname}{Liste des notations}
+\renewcommand*{\pagedeclaration}[1]{\unskip\dotfill\hyperpage{#1}}
+\makenomenclature
+
+\usepackage{makeidx}
+\makeindex
+
+
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{0,0.5,1}
+\definecolor{colString}{rgb}{0.6,0.1,0.1}
+
+\definecolor{c1}{RGB}{205,204,0}
+\definecolor{c2}{RGB}{86,170,96}
+\definecolor{c3}{RGB}{160,44,78}
+\definecolor{c4}{RGB}{55,171,200}
+
+\definecolor{gris}{gray}{0.75}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\pow}{pow}
+\DeclareMathOperator*{\nei}{\mathcal{F}_{voi}}
+\DeclareMathOperator*{\signature}{signature}
+\DeclareMathOperator*{\acos}{acos}
+\DeclareMathOperator*{\tr}{tr}
+
+\usepackage{csquotes}
+\lstset{%configuration de listings
+	language=C,
+	basicstyle=\ttfamily\small, %
+	identifierstyle=\color{colIdentifier}, %
+	keywordstyle=\color{colKeys}, %
+	stringstyle=\color{colString}, %
+	commentstyle=\color{colComments}, %
+	columns=flexible, %
+	tabsize=3, %
+	%frame=trBL, %
+	extendedchars=true, %
+	%showspaces=false, %
+	showstringspaces=false, %
+	numbers=none, %
+	breaklines=true, %
+	breakautoindent=true, %
+	captionpos=b,%
+	xrightmargin=0cm, %
+	xleftmargin=0cm,
+	mathescape=true
+}
+\frenchspacing
+
+\newgeometry{hmargin={0pt,0pt},vmargin={0pt,0pt}}
+\savegeometry{include}
+
+\newgeometry{vmargin={4.1cm,3.6cm},hmargin={3cm,2cm},twoside}
+\setstretch{1.1}
+\savegeometry{normalpreprint}
+
+\newgeometry{vmargin={4.1cm,3.6cm},hmargin={2cm,3cm},twoside}
+\setstretch{1.1}
+\savegeometry{normalpreprintinverse}
+
+\newgeometry{vmargin={4.1cm,3.6cm},hmargin={2.5cm,2.5cm}}
+\setstretch{1.1}
+\savegeometry{normaldigital}
+
+\ifthenelse{\equal{\preprint}{YES}}
+{
+\loadgeometry{normalpreprint}
+\savegeometry{normal}
+\loadgeometry{normalpreprintinverse}
+\savegeometry{normalinverse}
+}
+{
+\loadgeometry{normaldigital}
+\savegeometry{normal}
+\savegeometry{normalinverse}
+}
+
+
+\setlist[itemize,1]{label=$\blacksquare$}
+\setlist[itemize,2]{label=$\bullet$}
+
+%% macro/racourcis por les symboles et commandes usuelles
+\input{sources/macro.tex}
+
+\title{\TITRE}
+
+\author{\AUTp \AUTn}
+
+\hypersetup{
+	pdfauthor={{\AUTp} {\AUTn}},
+	pdftitle={{\TITRE}},
+	pdfsubject={\MENTION},
+	pdfkeywords={\KEYWORDS},
+	hidelinks
+}
+
+\usepackage{titlesec}
+ \usepackage{anyfontsize}
+ 
+ 
+\titleformat{\chapter}[display]
+  {\bfseries}
+  {\filleft \fontsize{50}{40}\selectfont \textbf{Chapitre}  \fontsize{100}{60}\selectfont \textbf{\textcolor{c4}{ \thechapter }}{ }}
+  {1ex}
+  {
+  \vspace{1ex}\filright   \Huge}
+  [\vspace{1ex} \textcolor{c4}{\titlerule}]
+ 
+ %%%%%%%%%%%%%%%%%%%%%%
+% Gestion des flottants (figures, tables, etc.)
+%
+% proportion minimale d'une page normale devant être occupée par du texte (défaut 0.2)
+\renewcommand{\textfraction}{0.01} %0.05
+% proportion maximale de la page pouvant être occupée par des flottants en haut de la page (défaut 0.7)
+\renewcommand{\topfraction}{0.99} %0.95
+% proportion maximale de la page pouvant être occupée par des flottants en bas de la page (défaut 0.3)
+\renewcommand{\bottomfraction}{0.99} %0.95
+% proportion minimale d'une page de flottants devant être occupée par des flottants (défaut 0.5) ; permet de limiter les espaces vides dans les pages de flottants
+\renewcommand{\floatpagefraction}{0.55} %0.35
+% nombre maximal de flottants permis sur une seule page (défaut 3)
+\setcounter{totalnumber}{5}
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\modif}[1]{{#1}} % comment to cancel colorization
+\newenvironment{emodif}{}  % comment to cancel colorization
+
