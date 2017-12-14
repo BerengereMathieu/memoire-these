@@ -1,0 +1,107 @@
+%------------------------------%
+%------------------------------%
+ \chapter{Conclusion}
+%------------------------------%
+%------------------------------%
+%\thispagestyle{plain}
+%\addcontentsline{toc}{chapter}{Conclusion}
+%\markboth{Conclusion}{Conclusion}
+
+Dans ce mémoire, nous avons présenté une synthèse de nos travaux menés autour deux thématiques  différentes : la segmentation interactive et la sur-segmentation. Le fil \modif{conducteur} de ces recherches est la mise au point d'un outil de sélection et d'annotation permettant l'enrichissement d'un observatoire photographique du paysage. Ce dernier permet d'associer à une photographie une segmentation sémantique indiquant pour chaque pixel \modif{la catégorie d'objet à laquelle} il appartient.
+
+ 
+\section{Segmentation interactive}
+
+Ces deux dernières décennies\modif{,} de très nombreuses méthodes de segmentation interactive ont été proposées. Traditionnellement, ces méthodes sont classés selon leur mode d'interaction, avec des algorithmes axés sur la recherche des contours \cite{mille2015combination,mortensen1995intelligent} tandis que d'autres se basent sur celle des régions \cite{jian2016interactive,mcguinness2010comparative,santner2010interactive}. 
+
+Dans ce \modif{mémoire,} nous avons montré que le choix du mode d'interaction influence le type de problème que la méthode pourra résoudre. Tandis que les méthodes par recherche des contours se limitent à la sélection d'\modif{objets correspondant à} une seule composante connexe, sans trou, le mode d'interaction propre aux méthodes par recherche des régions n'impose aucune limitation sur la topologie des objets ou leur nombre. 
+
+Les trois catégories que nous \modif{avons proposé} dans le chapitre 2 \modif{--} méthodes de binarisation interactive par recherche des contours, méthodes de binarisation interactive par recherche des régions, méthodes de segmentation interactive \modif{multiclasse} \modif{--} permettent d'identifier le type de problème résolu par l'algorithme.
+
+\subsection{Proposition d'une nouvelle méthode}
+L'une des \modif{principales} contributions de nos travaux est la conception d'une nouvelle méthode de segmentation interactive \modif{multiclasse}, $S \alpha F$. Décrite en détail dans le chapitre 3, cette dernière repose sur l'extraction de primitives visuelles nommées superpixels, qui correspondent à de petites \modif{régions décrites} par leur couleur moyenne et la position de leur barycentre. 
+
+L'utilisation d'un SVM, entraîné à partir des germes donnés par l'utilisateur, permet de tirer le meilleur parti de ce descripteur minimaliste. Nous montrons comment estimer à la fois la probabilité qu'un superpixel \modif{$\mathbf{s}_{i}$} appartienne à une classe $\lambda_{m}$ et celle que deux superpixels voisins,  \modif{$\mathbf{s}_{i1}$} et \modif{$\mathbf{s}_{i2}$} appartiennent respectivement aux classes $\lambda_{m1}$ et $\lambda_{m2}$. Ces deux types de probabilités nous permettent de calculer les facteurs d'une fonction que nous minimisons dans un graphe de \modif{facteurs}, afin de trouver une segmentation \modif{adéquate} de l'image.
+
+\subsection{Mise à disposition d'un nouvel ensemble de données de référence}
+L'évaluation et la comparaison des différentes méthodes de segmentation interactive est une tâche difficile. Les codes sources sont rarement disponibles, les données de référence \modif{sont} utilisées selon des modalités très différentes et l'ergonomie des méthodes est prise en compte de manière sporadique. Un \modif{travail} reste à faire qui permettrait une analyse rigoureuse des avantages et inconvénients de chaque algorithme.
+
+Notre contribution concerne la création et \modif{la} mise à disposition de trois ensembles de données comprenant des images de tailles différentes afin de tester le passage à l'échelle d'une méthode de segmentation interactive \modif{multiclasse}. Les \modif{images} du dernier ensemble, contenant $1800 \times 1201$ pixels, ont en outre l'avantage de se rapprocher \modif{davantage} des dimensions des photographies prises par les appareils \modif{pour le grand public} que les données de \modif{référence utilisées jusqu'à maintenant} \cite{mcguinness2010comparative,rother2004grabcut, santner2010interactive}.
+
+
+\subsection{Évaluation de la méthode proposée}
+\modif{La} comparaison d'une nouvelle méthode de segmentation interactive avec les méthodes existantes est une tâche délicate. En mettant en regard les résultats obtenus par $S \alpha F$ avec ceux de l'état de l'art, nous avons montré l'intérêt de l'algorithme que nous proposons. 
+
+Nous nous sommes également intéressés à certaines de ses propriétés :
+\begin{itemize}
+\item intérêt du terme de régularisation ;
+\item passage à l'échelle ;
+\item ergonomie ;
+\item caractéristiques des germes à donner. 
+\end{itemize}
+
+Ces tests \modif{ont permis de mettre en évidence} les capacités de $S \alpha F$, ses points forts et ses faiblesses.
+
+
+\section{Sur-segmentation}
+
+\subsection{Conception d'un nouveau protocole d'évaluation}
+L'une des principales motivations des algorithmes de sur-segmentation est de créer des groupes de pixels \modif{homogènes}, les superpixels, moins nombreux que les pixels, donc plus \modif{rapides} à traiter que ces derniers. Cependant, les données de référence utilisées pour évaluer les méthodes de sur-segmentation sont des images de taille modeste : à peine quelques milliers de pixels. 
+
+Afin d'y remédier, nous avons \modif{conçu} et mis à disposition un nouvel ensemble de données, $HSID$, \modif{composé} d'images de tailles diverses, avec toutefois une majorité de grandes images, contenant plusieurs millions de \modif{pixels}. Les particularités de ces données nous ont conduit à repenser les mesures traditionnellement \modif{utilisées} pour évaluer la \modif{qualité} d'une sur-segmentation. 
+
+Enfin\modif{,} une analyse des méthodes utilisant les superpixels nous \modif{a} permis de formaliser les attentes propres à un algorithme de sur-segmentation, au travers de cinq propriétés (validité, adhérence aux contours, concision, simplicité, rapidité) et du concept d'adaptabilité. L'ensemble de ce travail \modif{a été} détaillé \modif{au} chapitre 4.
+
+\subsection{Analyse des méthodes existantes}
+
+Présentée dans le chapitre 4, l'analyse des résultats obtenus par les \modif{méthodes de l'état de l'art} appliquées \modif{aux} images \modif{de} $HSID$ \modif{révèlent} que seulement trois d'entre elles conservent leurs bonnes performances lorsqu'elles sont \modif{amenées} à traiter des images de tailles différentes ou des images de grande taille. 
+
+Le choix d'une méthode parmi les trois obtenant de \modif{bons résultats} dépend du domaine d'application. En particulier nos test\modif{,} montrent que :
+\begin{itemize}
+\item l'algorithme ERS de Liu \textit{et al.} \cite{liu2011entropy} permet d'obtenir une excellente adhérence aux contours avec un nombre peu élevé de superpixels. Cependant\modif{, cette méthode} est lente et n'a aucune adaptabilité ;
+\item l'algorithme FZ de Felzenszwalb \textit{et al.} \cite{felzenszwalb2004efficient} fournit un compromis intéressant : bénéficiant d'une bonne adaptabilité, il est capable d'atteindre une adhérence aux contours \modif{correcte} avec un nombre de superpixels raisonnable. Ses temps \modif{d'exécution} sont trois fois plus \modif{rapides} que ceux de l'algorithme ERS. 
+\item l'algorithme SLIC d'Achanta \textit{et al.} \cite{achanta2012slic} est de loin la méthode la plus rapide, avec un temps d'exécution dix fois inférieur à celui d'ERS. Il requiert toutefois quelques superpixels supplémentaires pour obtenir la même adhérence aux contours que \modif{ses} deux \modif{concurrents}. 
+\end{itemize}
+
+\subsection{Proposition d'une nouvelle méthode}
+
+L'étude des algorithmes \modif{de sur-segmentation existants} nous a conduit à proposer, dans le chapitre 6, une nouvelle méthode, $ASARI$. Cette dernière s'appuie sur un premier résultat obtenu grâce à l'algorithme SLIC, qui correspond à une sur-segmentation en de très nombreux superpixels. Certains de ces superpixels sont alors fusionnés afin d'aboutir à un résultat meilleur que celui de SLIC en ce qui concerne l'adhérence aux contours et le nombre de superpixels, tout en conservant des temps d'exécution aussi faibles que possible. 
+
+Les deux principales particularités d'ASARI sont :
+\begin{itemize}
+\item le fait que les superpixels produits \modif{soient non} seulement homogènes au sens de la couleur mais également au sens de la texture ;
+\item une bonne adaptabilité, qui permet d'obtenir de grands superpixels dans les zones uniformes et de nombreux petits superpixels dans celles riches en détails. 
+\end{itemize}
+
+Les résultats d'ASARI sont \modif{encourageants}, en particulier pour les images de grandes tailles comme celle de $HSID$ pour lesquelles ses performances sont nettement meilleures que celle du reste de l'état de l'art.
+
+
+\section{Perspectives}
+
+
+\subsection{Évaluation des méthodes de segmentation interactive}
+
+Si l'évaluation que nous avons conduite permet de montrer l'intérêt de $S \alpha F$, une comparaison plus \modif{complète} des divers algorithmes de l'état de l'art reste à réaliser. Elle nécessite un travail conséquent pour implémenter les méthodes existantes (\modif{leur code} n'étant pas disponible) et la mise en place d'un protocole permettant de mieux prendre en compte la place de l'utilisateur. 
+
+De manière similaire à ce qui a été réalisé par McGuinness \textit{et al.} \cite{mcguinness2010comparative}, il serait souhaitable que chaque méthode soit évaluée par différents utilisateurs. Les questions \modif{posées} à ces derniers devront permettre d'obtenir des données quantitatives plus fiables concernant les différents aspects que nous avons évoqués dans le chapitre 5, avec notamment :
+
+\begin{itemize}
+\item l'influence du temps d'exécution sur la pénibilité d'utilisation d'un outil de segmentation interactive ;
+\item les caractéristiques des germes à donner à chaque méthode et la manière dont ils permettent d'obtenir plus ou moins rapidement un résultat \modif{satisfaisant}. 
+\end{itemize}
+
+Par ailleurs, une telle évaluation nécessitera de poursuivre notre effort pour la mise à disposition d'ensembles de données de référence contenant des images de \modif{tailles similaires} à celles produites actuellement par les appareils photographiques grand \modif{public}. Les ensembles que nous avons proposés doivent être étendus. Il serait également souhaitable de \modif{travailler} à la réalisation d'un ensemble contenant des données de très grandes tailles (plusieurs \modif{milliers} de pixels \modif{en largeur et en hauteur}).
+
+\subsection{Intégration d'ASARI au sein de $S \alpha F$}
+
+Comme évoqué \modif{à la} fin du chapitre 5, l'étape de $S \alpha F$ ouvrant le plus de \modif{perspectives} pour l'amélioration de ses performances est celle de la sur-segmentation. Dans le chapitre 6\modif{,} nous avons présenté un nouvel algorithme de sur-segmentation : ASARI. 
+
+Actuellement\modif{,} ASARI est trop lent pour être intégré avec succès au sein d'une méthode comme $S \alpha F$. En particulier\modif{, ses} temps d'exécution compromettent une implémentation \modif{utilisable} sur smartphone. Un travail important doit donc être réalisé, afin \modif{d’accélérer ASARI}. La conclusion du chapitre 6 nous a donné l'occasion d'évoquer quelques pistes, telles que la parallélisation de \modif{certaines} portions de l'algorithme. 
+
+Une fois ce travail effectué, l'intégration d'ASARI \modif{à la méthode} $S \alpha F$ reposera la question du descripteur, les superpixels \modif{produits} par cet algorithme ayant la propriété de ne pas être seulement \modif{homogènes} au sens de la couleur, mais également en termes de texture. La mise en place de tests \modif{supplémentaires} devra permettre de décider si l'utilisation d'un descripteur plus complexe, intégrant la texture en plus de \modif{la} couleur et de la localisation, influence la qualité des segmentations produites ou les germes à donner.
+
+\subsection{Observatoires photographiques du paysage }
+ 
+ La version de $S \alpha F$ que nous avons décrite au chapitre 3 a été implémentée avec succès \modif{dans} une application distribuée facilitant l'enrichissement d'un observatoire photographique du paysage \cite{puel2017une}. L'algorithme $S \alpha F$ permet d'\modif{associer} à chaque photographie une segmentation indiquant la classe sémantique des pixels et permettant d'identifier et de localiser avec précision les objets \modif{présents}. La faible complexité de $S \alpha F$ permet une utilisation fluide \modif{de cet outil}. 
+ 
+ Nous souhaitons tester l'utilisation de cette application \modif{distribuée} dans un contexte de jeu-sérieux où la mise en place d'un observatoire et la contribution à \modif{son amélioration serviraient} de supports dans des cours sur l'aménagement du territoire.  Nous envisageons d’ajouter à l’application mobile une fonctionnalité d’envoi sur le réseau social Twitter, afin qu'un message accompagne chaque  nouvelle image ajoutée à l'observatoire. De la sorte, les utilisateurs qui suivent le mot-clé correspondant seront informés des changements et les participants à un jeu sérieux seront avisés de l’avancée de leurs partenaires ou \modif{de leurs} concurrents.  Nous allons mener des tests avec deux classes et leurs enseignants,  l'une en \modif{classe de terminale} technologique \modif{\og Sciences et technologies de l’agronomie et du vivant \fg}, l'autre en \modif{en classe de terminale} professionnelle \modif{\og Aménagements paysagers \fg.} 
