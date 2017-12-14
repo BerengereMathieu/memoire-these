@@ -1,0 +1,41 @@
+\begin{picture}(0,0)%
+\includegraphics{images/saf/algoOverview.pdf}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(12969,10114)(-239,-9245)
+\put(7726,-1261){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}superpixels}%
+}}}}
+\put(7726,-3361){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}descripteurs des superpixels}%
+}}}}
+\put(5851,-5461){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}premi\`ere segmentation}%
+}}}}
+\put(6676,-8011){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{1,1,1}Minimisation}%
+}}}}
+\put(5326,-2086){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{1,1,1}Extraction des caract\'eristiques}%
+}}}}
+\put(2176,614){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,.56}Initialisation}%
+}}}}
+\put(-224,-436){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}image}%
+}}}}
+\put(-224,-4336){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}germes}%
+}}}}
+\put(-149,-9136){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}segmentation}%
+}}}}
+\put(2251,-3436){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,.56}Segmentation}%
+}}}}
+\put(3676,-6511){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{1,1,1}Calcul de $\mathcal{F}_{D}$}%
+}}}}
+\put(9076,-6511){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{1,1,1}Calcul de $\mathcal{F}_{R}$}%
+}}}}
+\put(6376,-4561){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{1,1,1}Entra\^\i{}nement}%
+}}}}
+\put(6301,-436){\makebox(0,0)[lb]{\smash{{\SetFigFont{20}{24.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{1,1,1}Sur-segmentation}%
+}}}}
+\end{picture}%
