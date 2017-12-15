@@ -21,10 +21,18 @@
 \input{sources/chapter4_evaluation/main.tex} 
 \glsresetall
 \input{sources/chapter5_asari/main.tex}
-
 \input{miscpages/conclu.tex}
-\appendix
 
+\appendix
+\titleformat{\chapter}[display]
+  {\bfseries}
+  {\filleft \fontsize{50}{40}\selectfont \textbf{Annexe}  \fontsize{100}{60}\selectfont \textbf{\textcolor{c4}{ \thechapter }}{ }}
+  {1ex}
+  {
+  \vspace{1ex}\filright   \Huge}
+  [\vspace{1ex} \textcolor{c4}{\titlerule}]
+
+\input{miscpages/annexe.tex}
 
 \input{biblio/publis.tex}
 \input{biblio/biblio.tex}
